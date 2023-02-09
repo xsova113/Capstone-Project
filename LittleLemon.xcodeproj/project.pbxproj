@@ -8,19 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		86EDDF72299437A200FD4A35 /* LittleLemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */; };
-		86EDDF74299437A200FD4A35 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF73299437A200FD4A35 /* ContentView.swift */; };
 		86EDDF76299437A300FD4A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDDF75299437A300FD4A35 /* Assets.xcassets */; };
 		86EDDF79299437A300FD4A35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDDF78299437A300FD4A35 /* Preview Assets.xcassets */; };
 		86EDDF8029943AC700FD4A35 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF7F29943AC700FD4A35 /* Restaurant.swift */; };
+		86EDDF9C29948EEA00FD4A35 /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF9B29948EEA00FD4A35 /* OnBoarding.swift */; };
+		86EDDFA02994CCEF00FD4A35 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF9F2994CCEF00FD4A35 /* Home.swift */; };
+		86EDDFA22994CE5700FD4A35 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFA12994CE5700FD4A35 /* Menu.swift */; };
+		86EDDFA42994ED6F00FD4A35 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFA32994ED6F00FD4A35 /* UserProfile.swift */; };
+		86EDDFA72995792200FD4A35 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFA52995792200FD4A35 /* Persistence.swift */; };
+		86EDDFA82995792200FD4A35 /* FetchedObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFA62995792200FD4A35 /* FetchedObjects.swift */; };
+		86EDDFAB29957A8500FD4A35 /* MenuList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFAA29957A8500FD4A35 /* MenuList.swift */; };
+		86EDDFAD29957A9200FD4A35 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFAC29957A9200FD4A35 /* MenuItem.swift */; };
+		86EDDFB02995865000FD4A35 /* ExampleDatabase.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFAE2995865000FD4A35 /* ExampleDatabase.xcdatamodeld */; };
+		86EDDFB42995A5EE00FD4A35 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFB32995A5EE00FD4A35 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		86EDDF6E299437A200FD4A35 /* LittleLemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonApp.swift; sourceTree = "<group>"; };
-		86EDDF73299437A200FD4A35 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		86EDDF75299437A300FD4A35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		86EDDF78299437A300FD4A35 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		86EDDF7F29943AC700FD4A35 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		86EDDF9B29948EEA00FD4A35 /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
+		86EDDF9E299493F200FD4A35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		86EDDF9F2994CCEF00FD4A35 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		86EDDFA12994CE5700FD4A35 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		86EDDFA32994ED6F00FD4A35 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		86EDDFA52995792200FD4A35 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		86EDDFA62995792200FD4A35 /* FetchedObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchedObjects.swift; sourceTree = "<group>"; };
+		86EDDFAA29957A8500FD4A35 /* MenuList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuList.swift; sourceTree = "<group>"; };
+		86EDDFAC29957A9200FD4A35 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		86EDDFAF2995865000FD4A35 /* ExampleDatabase.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExampleDatabase.xcdatamodel; sourceTree = "<group>"; };
+		86EDDFB32995A5EE00FD4A35 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +72,10 @@
 		86EDDF70299437A200FD4A35 /* LittleLemon */ = {
 			isa = PBXGroup;
 			children = (
+				86EDDF9E299493F200FD4A35 /* Info.plist */,
 				86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */,
-				86EDDF73299437A200FD4A35 /* ContentView.swift */,
+				86EDDFA92995792A00FD4A35 /* Models */,
+				86EDDF9D29948EFF00FD4A35 /* Views */,
 				86EDDF7F29943AC700FD4A35 /* Restaurant.swift */,
 				86EDDF75299437A300FD4A35 /* Assets.xcassets */,
 				86EDDF77299437A300FD4A35 /* Preview Content */,
@@ -68,6 +89,30 @@
 				86EDDF78299437A300FD4A35 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		86EDDF9D29948EFF00FD4A35 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				86EDDF9B29948EEA00FD4A35 /* OnBoarding.swift */,
+				86EDDF9F2994CCEF00FD4A35 /* Home.swift */,
+				86EDDFA12994CE5700FD4A35 /* Menu.swift */,
+				86EDDFB32995A5EE00FD4A35 /* DetailView.swift */,
+				86EDDFA32994ED6F00FD4A35 /* UserProfile.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		86EDDFA92995792A00FD4A35 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				86EDDFA62995792200FD4A35 /* FetchedObjects.swift */,
+				86EDDFA52995792200FD4A35 /* Persistence.swift */,
+				86EDDFAA29957A8500FD4A35 /* MenuList.swift */,
+				86EDDFAC29957A9200FD4A35 /* MenuItem.swift */,
+				86EDDFAE2995865000FD4A35 /* ExampleDatabase.xcdatamodeld */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,9 +185,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				86EDDF74299437A200FD4A35 /* ContentView.swift in Sources */,
+				86EDDFB02995865000FD4A35 /* ExampleDatabase.xcdatamodeld in Sources */,
+				86EDDFB42995A5EE00FD4A35 /* DetailView.swift in Sources */,
 				86EDDF72299437A200FD4A35 /* LittleLemonApp.swift in Sources */,
+				86EDDF9C29948EEA00FD4A35 /* OnBoarding.swift in Sources */,
+				86EDDFA42994ED6F00FD4A35 /* UserProfile.swift in Sources */,
+				86EDDFA72995792200FD4A35 /* Persistence.swift in Sources */,
+				86EDDFA82995792200FD4A35 /* FetchedObjects.swift in Sources */,
+				86EDDFA02994CCEF00FD4A35 /* Home.swift in Sources */,
 				86EDDF8029943AC700FD4A35 /* Restaurant.swift in Sources */,
+				86EDDFAB29957A8500FD4A35 /* MenuList.swift in Sources */,
+				86EDDFA22994CE5700FD4A35 /* Menu.swift in Sources */,
+				86EDDFAD29957A9200FD4A35 /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -253,6 +308,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = NO;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -274,7 +330,7 @@
 				DEVELOPMENT_TEAM = ZJBT7VM4WJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LittleLemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -303,7 +359,7 @@
 				DEVELOPMENT_TEAM = ZJBT7VM4WJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = LittleLemon/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -343,6 +399,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		86EDDFAE2995865000FD4A35 /* ExampleDatabase.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				86EDDFAF2995865000FD4A35 /* ExampleDatabase.xcdatamodel */,
+			);
+			currentVersion = 86EDDFAF2995865000FD4A35 /* ExampleDatabase.xcdatamodel */;
+			path = ExampleDatabase.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 86EDDF66299437A200FD4A35 /* Project object */;
 }
