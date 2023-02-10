@@ -13,7 +13,6 @@ struct LittleLemonApp: App {
         WindowGroup {
             OnBoarding().onAppear {
                 UIApplication.shared.addTapGestureRecognizer()
-                    
            }
         }
     }
