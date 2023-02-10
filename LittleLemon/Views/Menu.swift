@@ -74,6 +74,30 @@ struct Menu: View {
             .padding()
             .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
             
+            VStack {
+                Text("Order for Delivery!")
+                    .fontWeight(.medium)
+                    .font(.system(size: 20))
+                    .padding(.horizontal, 15)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            HStack {
+                FilterButton(filterType: "Starter")
+                    .padding(.horizontal, 5)
+                FilterButton(filterType: "Mains")
+                    .padding(.horizontal, 5)
+                FilterButton(filterType: "Desserts")
+                    .padding(.horizontal, 5)
+                FilterButton(filterType: "Drinks")
+                    .padding(.horizontal, 5)
+            }
+            .padding(.top, -5)
+            .frame(maxWidth: .infinity, alignment: .center)
+            
+            Divider()
+                .padding(.top, 10)
+            
             NavigationStack {
                 FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
                     List {
@@ -87,7 +111,7 @@ struct Menu: View {
                                             .font(Font.custom("karla", size: 20))
                                             .bold()
                                             .padding(.top, 10)
-                                       Spacer()
+                                        Spacer()
                                         Text(dish.describ!)
                                             .font(Font.custom("Karla-paragraph", size: 16))
                                             .fontWeight(.regular)
@@ -124,4 +148,5 @@ struct Menu_Previews: PreviewProvider {
         Menu()
     }
 }
+
 

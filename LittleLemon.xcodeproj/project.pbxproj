@@ -10,6 +10,7 @@
 		8694C1882996E52E00C414AE /* karla.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8694C1872996E52E00C414AE /* karla.ttf */; };
 		8694C18C2996E87500C414AE /* MarkaziText-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8694C18B2996E87500C414AE /* MarkaziText-Medium.ttf */; };
 		8694C18E2996E9B000C414AE /* MarkaziText-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8694C18D2996E9B000C414AE /* MarkaziText-Regular.ttf */; };
+		8694C1902996F61700C414AE /* FilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8694C18F2996F61700C414AE /* FilterButton.swift */; };
 		86EDDF72299437A200FD4A35 /* LittleLemonApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */; };
 		86EDDF76299437A300FD4A35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDDF75299437A300FD4A35 /* Assets.xcassets */; };
 		86EDDF79299437A300FD4A35 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86EDDF78299437A300FD4A35 /* Preview Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		8694C1872996E52E00C414AE /* karla.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = karla.ttf; sourceTree = "<group>"; };
 		8694C18B2996E87500C414AE /* MarkaziText-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Medium.ttf"; sourceTree = "<group>"; };
 		8694C18D2996E9B000C414AE /* MarkaziText-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MarkaziText-Regular.ttf"; sourceTree = "<group>"; };
+		8694C18F2996F61700C414AE /* FilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterButton.swift; sourceTree = "<group>"; };
 		86EDDF6E299437A200FD4A35 /* LittleLemon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonApp.swift; sourceTree = "<group>"; };
 		86EDDF75299437A300FD4A35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				86EDDFB82995EC4400FD4A35 /* LogoView.swift */,
 				86EDDFBD29962A3300FD4A35 /* RegisterButton.swift */,
 				86EDDFBF29962D6A00FD4A35 /* LogoutButton.swift */,
+				8694C18F2996F61700C414AE /* FilterButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				86EDDFB92995EC4400FD4A35 /* LogoView.swift in Sources */,
 				86EDDFA22994CE5700FD4A35 /* Menu.swift in Sources */,
 				86EDDFAD29957A9200FD4A35 /* MenuItem.swift in Sources */,
+				8694C1902996F61700C414AE /* FilterButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
