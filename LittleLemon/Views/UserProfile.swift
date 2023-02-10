@@ -20,7 +20,7 @@ struct UserProfile: View {
             Text("Personal information")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding()
+                .padding(.top, 70)
             Image("profile")
                 .padding()
             
@@ -37,7 +37,7 @@ struct UserProfile: View {
                     UserDefaults.standard.set(false, forKey: kIsLoggedIn)
                     self.isPresented.wrappedValue.dismiss()
                 } label: {
-                    Text("Logout")
+                    LogoutButton()
                 }
         }
         .padding()
