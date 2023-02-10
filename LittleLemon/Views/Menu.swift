@@ -29,7 +29,7 @@ struct Menu: View {
                             dish.title = menu.title
                             dish.image = menu.image
                             dish.price = menu.price
-//                            dish.describ = menu.describ
+                            dish.describ = menu.description
                         }
                         try? context.save()
                     }
@@ -86,6 +86,9 @@ struct Menu: View {
                                         Text(dish.title!)
                                             .padding(.top, 10)
                                        Spacer()
+                                        Text(dish.describ!)
+                                            .font(.caption)
+                                        Spacer()
                                         Text("$\(dish.price!)")
                                     }
                                     Spacer()

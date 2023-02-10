@@ -12,6 +12,6 @@ struct MenuItem: Decodable {
     let title: String
     let image: String
     let price: String
-//    let describ: String
+    let description: String
 }
 
