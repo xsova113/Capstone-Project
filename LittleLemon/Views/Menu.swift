@@ -67,7 +67,7 @@ struct Menu: View {
             }
             VStack {
                 HeroView()
-                TextField("Search menu", text: $searchText)
+                TextField("\(Image(systemName: "magnifyingglass")) Search menu", text: $searchText)
                     .background(Color.white)
                     .textFieldStyle(.roundedBorder)
                     .padding(.bottom, 20)
