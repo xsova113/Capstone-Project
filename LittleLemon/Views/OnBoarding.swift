@@ -21,57 +21,59 @@ struct OnBoarding: View {
     
     var body: some View {
         NavigationStack {
-            Section {
-                LogoView()
-            }
-            .padding()
-           Section {
-                HeroView()
-            }
-            .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
-            
-            VStack(alignment: .center) {
-                VStack {
-                    TextField("First name", text: $firstName)
-                        .padding()
-                    TextField("Last name", text: $lastName)
-                        .padding()
-                    TextField("Email", text: $email)
-                        .padding()
-                    TextField("Password", text: $password)
-                        .padding()
+            ScrollView {
+                Section {
+                    LogoView()
                 }
-                .textFieldStyle(.roundedBorder)
                 .padding()
+                Section {
+                    HeroView()
+                }
+                .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
                 
-                Button {
-                    if !firstName.isEmpty && !password.isEmpty {
-                        isLoggedIn = true
-                        UserDefaults.standard.set(firstName, forKey: kFirstName)
-                        UserDefaults.standard.set(true, forKey: kIsLoggedIn)
+                VStack(alignment: .center) {
+                    VStack {
+                        TextField("First name", text: $firstName)
+                            .padding()
+                        TextField("Last name", text: $lastName)
+                            .padding()
+                        TextField("Email", text: $email)
+                            .padding()
+                        TextField("Password", text: $password)
+                            .padding()
                     }
-                    if !lastName.isEmpty && !email.isEmpty {
-                        UserDefaults.standard.set(lastName, forKey: kLastName)
-                        UserDefaults.standard.set(email, forKey: KEmail)
-                    }
+                    .textFieldStyle(.roundedBorder)
+                    .padding()
                     
-                } label: {
-                    RegisterButton()
+                    Button {
+                        if !firstName.isEmpty && !password.isEmpty {
+                            isLoggedIn = true
+                            UserDefaults.standard.set(firstName, forKey: kFirstName)
+                            UserDefaults.standard.set(true, forKey: kIsLoggedIn)
+                        }
+                        if !lastName.isEmpty && !email.isEmpty {
+                            UserDefaults.standard.set(lastName, forKey: kLastName)
+                            UserDefaults.standard.set(email, forKey: KEmail)
+                        }
+                        
+                    } label: {
+                        RegisterButton()
+                    }
+                    .padding()
                 }
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .onAppear(perform: {
+                    if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
+                        isLoggedIn = true
+                    }
+                })
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .padding()
-            }
-            .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .onAppear(perform: {
-                if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
-                    isLoggedIn = true
+                .multilineTextAlignment(.center)
+                .navigationDestination(isPresented: $isLoggedIn) {
+                    Home()
                 }
-            })
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding()
-            .multilineTextAlignment(.center)
-            .navigationDestination(isPresented: $isLoggedIn) {
-                Home()
             }
         }
     }
