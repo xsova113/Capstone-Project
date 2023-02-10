@@ -40,7 +40,7 @@ struct Menu: View {
             task.resume()
         }
     }
-
+    
     
     func buildSortDescriptors() -> [NSSortDescriptor] {
         return [NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare))]
@@ -54,8 +54,9 @@ struct Menu: View {
         }
     }
     
+    
     var body: some View {
-        VStack {
+        ScrollView {
             HStack {
                 LogoView()
                     .padding(.leading, 65)
@@ -126,7 +127,7 @@ struct Menu: View {
                                     let url = URL(string: dish.image ?? "unavailable")
                                     AsyncImage(url: url) { image in image
                                             .image?.resizable()
-                                    }                                
+                                    }
                                     .frame(width: 100, height: 100, alignment: .trailing)
                                 }
                             }

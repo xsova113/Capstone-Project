@@ -7,11 +7,12 @@
 
 import SwiftUI
 
+
 struct DetailView: View {
     @Environment(\.managedObjectContext) private var context
     
     var body: some View {
-
+        
         Text("nil")
     }
 }
