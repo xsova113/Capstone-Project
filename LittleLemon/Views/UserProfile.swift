@@ -20,7 +20,7 @@ struct UserProfile: View {
             Text("Personal information")
                 .font(.title)
                 .fontWeight(.bold)
-                .padding(.top, 70)
+                .padding(.top, 50)
             Image("profile")
                 .padding()
             

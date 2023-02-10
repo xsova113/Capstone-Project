@@ -28,22 +28,29 @@ struct OnBoarding: View {
                 .padding()
                 Section {
                     HeroView()
+                        .padding(.bottom)
                 }
                 .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
                 
                 VStack(alignment: .center) {
                     VStack {
+                        Text("First Name *")
+                            .foregroundColor(.gray)
                         TextField("First name", text: $firstName)
-                            .padding()
+                        
+                        Text("Last Name *")
+                            .foregroundColor(.gray)
                         TextField("Last name", text: $lastName)
-                            .padding()
+                        
+                        Text("Email *")
+                            .foregroundColor(.gray)
                         TextField("Email", text: $email)
-                            .padding()
+                        
+                        Text("Password *")
+                            .foregroundColor(.gray)
                         TextField("Password", text: $password)
-                            .padding()
                     }
                     .textFieldStyle(.roundedBorder)
-                    .padding()
                     
                     Button {
                         if !firstName.isEmpty && !password.isEmpty {

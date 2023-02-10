@@ -84,18 +84,25 @@ struct Menu: View {
                                 HStack {
                                     VStack(alignment: .leading) {
                                         Text(dish.title!)
+                                            .font(Font.custom("karla", size: 20))
+                                            .bold()
                                             .padding(.top, 10)
                                        Spacer()
                                         Text(dish.describ!)
-                                            .font(.caption)
+                                            .font(Font.custom("Karla-paragraph", size: 16))
+                                            .fontWeight(.regular)
+                                            .padding(.bottom, -10)
+                                            .padding(.top, -5)
                                         Spacer()
                                         Text("$\(dish.price!)")
+                                            .font(Font.custom("karla", size: 16))
+                                            .fontWeight(.semibold)
                                     }
                                     Spacer()
                                     let url = URL(string: dish.image ?? "unavailable")
                                     AsyncImage(url: url) { image in image
                                             .image?.resizable()
-                                    }
+                                    }                                
                                     .frame(width: 100, height: 100, alignment: .trailing)
                                 }
                             }

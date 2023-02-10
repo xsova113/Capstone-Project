@@ -11,14 +11,15 @@ struct HeroView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Little Lemon")
-                .font(.title)
-                .fontWeight(.bold)
+                .font(Font.custom("MarkaziText-Medium", size: 64))
                 .foregroundColor(.yellow)
+                .padding(.bottom, -10)
             HStack {
                 VStack(alignment: .leading) {
                     Text("Richmond")
-                        .font(.title2)
-                        .padding(.bottom)
+                        .font(Font.custom("MarkaziText-Regular", size: 40))
+                        .padding(.top, -25)
+                        .padding(.bottom, 5)
                     Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
                         .font(.subheadline)
                 }
@@ -30,7 +31,8 @@ struct HeroView: View {
                     .frame(width: 160, height: 160)
             }
         }
-        .padding(EdgeInsets(top: 35, leading: 20, bottom: 35, trailing: 20))
+        .padding(.leading)
+        .padding(.trailing)
         .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
         .frame(maxWidth: .infinity)
     }
