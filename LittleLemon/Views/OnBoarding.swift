@@ -25,7 +25,7 @@ struct OnBoarding: View {
                 Section {
                     LogoView()
                 }
-                .padding()
+                .padding(.top, 10)
                 Section {
                     HeroView()
                         .padding(.bottom)
