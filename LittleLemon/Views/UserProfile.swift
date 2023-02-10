@@ -14,22 +14,31 @@ struct UserProfile: View {
     @Environment(\.presentationMode) var isPresented
     
     var body: some View {
-        VStack {
-            Text("Personal information")
-            Image("profile-image-placeholder")
-                .padding()
-            Text("First name: \(firstName ?? "")")
-            Text("Last name: \(lastName ?? "")")
-            Text("Email: \(email ?? "")")
+        VStack(alignment: .center) {
+            LogoView()
             
-            Button {
-                UserDefaults.standard.set(false, forKey: kIsLoggedIn)
-                self.isPresented.wrappedValue.dismiss()
-            } label: {
-                Text("Logout")
+            Text("Personal information")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding()
+            Image("profile")
+                .padding()
+            
+            VStack(alignment: .leading) {
+                Text("First name: \(firstName ?? "")")
+                    .padding()
+                Text("Last name: \(lastName ?? "")")
+                    .padding()
+                Text("Email: \(email ?? "")")
+                    .padding()
             }
-            Spacer()
-
+                Spacer()
+                Button {
+                    UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+                    self.isPresented.wrappedValue.dismiss()
+                } label: {
+                    Text("Logout")
+                }
         }
         .padding()
     }

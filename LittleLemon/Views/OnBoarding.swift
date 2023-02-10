@@ -18,14 +18,31 @@ struct OnBoarding: View {
     @State private var email = ""
     @State private var password = ""
     @State private var isLoggedIn = false
-
+    
     var body: some View {
         NavigationStack {
-            VStack {
-                TextField("First name", text: $firstName)
-                TextField("Last name", text: $lastName)
-                TextField("Email", text: $email)
-                TextField("Password", text: $password)
+            Section {
+                LogoView()
+            }
+            .padding()
+           Section {
+                HeroView()
+            }
+            .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
+            
+            VStack(alignment: .center) {
+                VStack {
+                    TextField("First name", text: $firstName)
+                        .padding()
+                    TextField("Last name", text: $lastName)
+                        .padding()
+                    TextField("Email", text: $email)
+                        .padding()
+                    TextField("Password", text: $password)
+                        .padding()
+                }
+                .textFieldStyle(.roundedBorder)
+                .padding()
                 
                 Button {
                     if !firstName.isEmpty && !password.isEmpty {
@@ -39,10 +56,12 @@ struct OnBoarding: View {
                     }
                     
                 } label: {
-                    Text("Register")
+                    RegisterButton()
                 }
                 .padding()
             }
+            .multilineTextAlignment(.leading)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .onAppear(perform: {
                 if UserDefaults.standard.bool(forKey: kIsLoggedIn) {
                     isLoggedIn = true

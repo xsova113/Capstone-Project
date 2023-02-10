@@ -29,6 +29,7 @@ struct Menu: View {
                             dish.title = menu.title
                             dish.image = menu.image
                             dish.price = menu.price
+//                            dish.describ = menu.describ
                         }
                         try? context.save()
                     }
@@ -53,19 +54,25 @@ struct Menu: View {
         }
     }
     
-    
     var body: some View {
-        VStack( alignment: .leading) {
-            Text("Little Lemon")
-                .font(.title)
-                .fontWeight(.bold)
-                .foregroundColor(.yellow)
-            Text("Richmond")
-                .font(.title2)
-            Text("We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.")
-            TextField("Search menu", text: $searchText)
-                .overlay(RoundedRectangle(cornerRadius: 5)
-                    .stroke(Color.green, lineWidth: 0.5))
+        VStack {
+            HStack {
+                LogoView()
+                    .padding(.leading, 65)
+                Image("profile")
+                    .resizable()
+                    .frame(width: 65, height: 65)
+                    .aspectRatio(contentMode: .fit)
+            }
+            VStack {
+                HeroView()
+                TextField("Search menu", text: $searchText)
+                    .background(Color.white)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.bottom, 20)
+            }
+            .padding()
+            .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
             
             NavigationStack {
                 FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
@@ -75,10 +82,11 @@ struct Menu: View {
                                 DetailView()
                             } label: {
                                 HStack {
-                                    VStack {
-                                        Text(dish.title ?? "No more")
-                                        Spacer()
-                                        Text(dish.price ?? "Unavailable")
+                                    VStack(alignment: .leading) {
+                                        Text(dish.title!)
+                                            .padding(.top, 10)
+                                       Spacer()
+                                        Text("$\(dish.price!)")
                                     }
                                     Spacer()
                                     let url = URL(string: dish.image ?? "unavailable")
@@ -92,11 +100,11 @@ struct Menu: View {
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
         }
         .onAppear(perform: {
             getMenuData()
         })
-        .padding()
         .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 }
@@ -106,3 +114,4 @@ struct Menu_Previews: PreviewProvider {
         Menu()
     }
 }
+
