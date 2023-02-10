@@ -98,7 +98,7 @@ struct Menu: View {
             Divider()
                 .padding(.top, 10)
             
-            NavigationStack {
+            NavigationView {
                 FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
                     List {
                         ForEach(dish) { dish in
