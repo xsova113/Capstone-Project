@@ -23,6 +23,7 @@
 		86EDDFB62995E83C00FD4A35 /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFB52995E83C00FD4A35 /* HeroView.swift */; };
 		86EDDFB92995EC4400FD4A35 /* LogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFB82995EC4400FD4A35 /* LogoView.swift */; };
 		86EDDFBE29962A3300FD4A35 /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFBD29962A3300FD4A35 /* RegisterButton.swift */; };
+		86EDDFC029962D6A00FD4A35 /* LogoutButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86EDDFBF29962D6A00FD4A35 /* LogoutButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		86EDDFB52995E83C00FD4A35 /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		86EDDFB82995EC4400FD4A35 /* LogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoView.swift; sourceTree = "<group>"; };
 		86EDDFBD29962A3300FD4A35 /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
+		86EDDFBF29962D6A00FD4A35 /* LogoutButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				86EDDFB82995EC4400FD4A35 /* LogoView.swift */,
 				86EDDFBD29962A3300FD4A35 /* RegisterButton.swift */,
+				86EDDFBF29962D6A00FD4A35 /* LogoutButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				86EDDFB02995865000FD4A35 /* ExampleDatabase.xcdatamodeld in Sources */,
+				86EDDFC029962D6A00FD4A35 /* LogoutButton.swift in Sources */,
 				86EDDFB42995A5EE00FD4A35 /* DetailView.swift in Sources */,
 				86EDDF72299437A200FD4A35 /* LittleLemonApp.swift in Sources */,
 				86EDDF9C29948EEA00FD4A35 /* OnBoarding.swift in Sources */,
