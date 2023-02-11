@@ -82,6 +82,7 @@ struct OnBoarding: View {
                     Home()
                 }
             }
+            .scrollDismissesKeyboard(.immediately)
         }
     }
 }

@@ -54,7 +54,6 @@ struct Menu: View {
         }
     }
     
-    
     var body: some View {
         ScrollView {
             HStack {
@@ -141,6 +140,7 @@ struct Menu: View {
             getMenuData()
         })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .scrollDismissesKeyboard(.immediately)
     }
 }
 

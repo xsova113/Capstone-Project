@@ -11,9 +11,7 @@ import SwiftUI
 struct LittleLemonApp: App {
     var body: some Scene {
         WindowGroup {
-            OnBoarding().onAppear {
-                UIApplication.shared.addTapGestureRecognizer()
-           }
+            OnBoarding()
         }
     }
 }
@@ -21,12 +19,13 @@ struct LittleLemonApp: App {
 extension UIApplication {
     func addTapGestureRecognizer() {
         guard let window = (connectedScenes.first as? UIWindowScene)?.windows.first else { return }
-           let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
-           tapGesture.requiresExclusiveTouchType = false
-           tapGesture.cancelsTouchesInView = false
-           tapGesture.delegate = self
-           window.addGestureRecognizer(tapGesture)
-       }
+        let tapGesture = UITapGestureRecognizer(target: window, action: #selector(UIView.endEditing))
+        tapGesture.requiresExclusiveTouchType = false
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
+        window.addGestureRecognizer(tapGesture)
+        
+    }
 }
 
 extension UIApplication: UIGestureRecognizerDelegate {
