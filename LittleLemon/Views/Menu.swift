@@ -49,6 +49,7 @@ struct Menu: View {
                                 dish.image = menu.image
                                 dish.price = menu.price
                                 dish.describ = menu.description
+                                dish.category = menu.category
                             }
                         }
                         try? context.save()
@@ -102,18 +103,7 @@ struct Menu: View {
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 
-                HStack {
-                    FilterButton(filterType: "Starter")
-                        .padding(.horizontal, 5)
-                    FilterButton(filterType: "Mains")
-                        .padding(.horizontal, 5)
-                    FilterButton(filterType: "Desserts")
-                        .padding(.horizontal, 5)
-                    FilterButton(filterType: "Drinks")
-                        .padding(.horizontal, 5)
-                }
-                .padding(.top, -5)
-                .frame(maxWidth: .infinity, alignment: .center)
+                FilterButton()
                 
                 Divider()
                     .padding(.top, 10)
@@ -152,7 +142,6 @@ struct Menu: View {
                                     .frame(width: 100, height: 100, alignment: .trailing)
                                 }
                             }
-                            
                         }
                     }
                 }
