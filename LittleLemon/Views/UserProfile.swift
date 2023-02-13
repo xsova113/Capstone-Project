@@ -45,7 +45,6 @@ struct UserProfile: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding()
             .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1)  )
-            .padding(.horizontal)
         }
         .padding()
     }

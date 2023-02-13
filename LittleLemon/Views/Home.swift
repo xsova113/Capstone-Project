@@ -14,7 +14,6 @@ struct Home: View {
         VStack {
             TabView {
                 Menu()
-                    .environment(\.managedObjectContext, persistence.container.viewContext)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
