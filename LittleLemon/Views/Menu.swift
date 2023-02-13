@@ -100,45 +100,46 @@ struct Menu: View {
             
             NavigationView {
                 FetchedObjects(predicate: buildPredicate(), sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
-                    List {
-                        ForEach(dish) { dish in
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                        Text(dish.title!)
-                                            .font(Font.custom("karla", size: 20))
-                                            .bold()
-                                            .padding(.top, 10)
-                                        Spacer()
-                                        Text(dish.describ!)
-                                            .font(Font.custom("Karla-paragraph", size: 16))
-                                            .fontWeight(.regular)
-                                            .padding(.bottom, -10)
-                                            .padding(.top, -5)
-                                        Spacer()
-                                        Text("$\(dish.price!)")
-                                            .font(Font.custom("karla", size: 16))
-                                            .fontWeight(.semibold)
-                                    }
+                    List(dish) { dish in
+                        NavigationLink {
+                            DetailView()
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(dish.title!)
+                                        .font(Font.custom("karla", size: 20))
+                                        .bold()
+                                        .padding(.top, 10)
                                     Spacer()
-                                    let url = URL(string: dish.image ?? "unavailable")
-                                    AsyncImage(url: url) { image in image
-                                            .image?.resizable()
-                                    }
-                                    .frame(width: 100, height: 100, alignment: .trailing)
+                                    Text(dish.describ!)
+                                        .font(Font.custom("Karla-paragraph", size: 16))
+                                        .fontWeight(.regular)
+                                        .lineLimit(2)
+                                        .padding(.bottom, -10)
+                                        .padding(.top, -5)
+                                    Spacer()
+                                    Text("$\(dish.price!)")
+                                        .font(Font.custom("karla", size: 16))
+                                        .fontWeight(.semibold)
+                                        .padding(.top, 5)
                                 }
+                                Spacer()
+                                let url = URL(string: dish.image ?? "unavailable")
+                                AsyncImage(url: url) { image in image
+                                        .image?.resizable()
+                                }
+                                .frame(width: 100, height: 100, alignment: .trailing)
                             }
                         }
+                        
                     }
                 }
             }
+            .onAppear(perform: {
+                getMenuData()
+            })
             .scrollContentBackground(.hidden)
         }
-        .onAppear(perform: {
-            getMenuData()
-        })
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .scrollDismissesKeyboard(.immediately)
     }

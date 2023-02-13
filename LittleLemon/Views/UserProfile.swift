@@ -17,21 +17,22 @@ struct UserProfile: View {
         VStack(alignment: .center) {
             LogoView()
             
-            Text("Personal information")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 50)
-            Image("profile")
-                .padding()
-            
-            VStack(alignment: .leading) {
-                Text("First name: \(firstName ?? "")")
+            VStack {
+                Text("Personal information")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.top, 50)
+                Image("profile")
                     .padding()
-                Text("Last name: \(lastName ?? "")")
-                    .padding()
-                Text("Email: \(email ?? "")")
-                    .padding()
-            }
+                
+                VStack(alignment: .leading) {
+                    Text("First name: \(firstName ?? "")")
+                        .padding()
+                    Text("Last name: \(lastName ?? "")")
+                        .padding()
+                    Text("Email: \(email ?? "")")
+                        .padding()
+                }
                 Spacer()
                 Button {
                     UserDefaults.standard.set(false, forKey: kIsLoggedIn)
@@ -39,6 +40,12 @@ struct UserProfile: View {
                 } label: {
                     LogoutButton()
                 }
+            }
+
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .padding()
+            .overlay(RoundedRectangle(cornerRadius: 20).stroke(.gray, lineWidth: 1)  )
+            .padding(.horizontal)
         }
         .padding()
     }
