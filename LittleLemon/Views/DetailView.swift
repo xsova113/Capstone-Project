@@ -9,76 +9,84 @@ import SwiftUI
 import CoreData
 
 struct DetailView: View {
-    @Environment(\.managedObjectContext) private var context
-    let persistence = PersistenceController.shared
-
-    func exists(context: NSManagedObjectContext, attributeValue: String) -> Bool {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Dish")
-        fetchRequest.predicate = NSPredicate(format: "title = %@", attributeValue)
-        
-        do {
-            let results = try context.fetch(fetchRequest)
-            return results.count > 0
-        } catch {
-            print(error.localizedDescription)
-            return false
-        }
-    }
     
-    func getMenuData() {
-        let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
-
-        if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            let task = URLSession.shared.dataTask(with: request) { data, urlResponse, error in
-                if let data = data {
-                    let decoder = JSONDecoder()
-                    if let decodedData = try? decoder.decode(MenuList.self, from: data) {
-                        let menu = decodedData.menu
-                        for menu in menu {
-                            if !exists(context: context, attributeValue: menu.title) {
-                                let dish = Dish(context: context)
-                                dish.title = menu.title
-                                dish.image = menu.image
-                                dish.price = menu.price
-                                dish.describ = menu.description
-                            }
-                        }
-                        try? context.save()
-                    }
-                } else if error != nil {
-                    print(error?.localizedDescription ?? "Error occurred")
-                }
-            }
-            task.resume()
-        }
-    }
-
+    let dish: Dish
+    @State private var num = 0
+    
     var body: some View {
-
-        NavigationStack {
-            VStack {
-                Text("Your Dish")
-                    .font(.title)
-                    .padding()
-                FetchedObjects() { (dish: [Dish]) in
-
-                    List(dish) { dish in
-                        Text(dish.title!)
-                    }
-                }
+        
+        
+        VStack {
+            LogoView()
+            
+            let url = URL(string: dish.image ?? "")
+            AsyncImage(url: url) { image in image
+                    .image?
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
             }
-            .onAppear {
-                getMenuData()
-            }
+            .frame(width: 395, height: 250,alignment: .center)
             .padding()
+            
+            Text(dish.title ?? "")
+                .font(.title)
+                .padding()
+            
+            Text(dish.describ ?? "")
+            
+            Spacer()
         }
-
+        .padding()
+        
+        VStack {
+            HStack(spacing: 20) {
+                Button {
+                    num += 1
+                    print(num)
+                } label: {
+                    Image(systemName: "plus")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.white)
+                        .frame(width: 25, height: 25)
+                }
+                Text(" \(String(num)) ")
+                    .font(.title)
+                    .foregroundColor(.white)
+                Button {
+                    num -= 1
+                    print(num)
+                } label: {
+                    Image(systemName: "minus")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .foregroundColor(.white)
+                        .frame(width: 25, height: 25)
+                }
+                .disabled(num <= 0)
+            }
+            
+            Button {
+                
+            } label: {
+                Text("Add for $\(dish.price!)")
+                    .font(.title3)
+                    .bold()
+                    .foregroundColor(.white)
+                    .padding(.horizontal)
+            }
+            .frame(width: 300)
+            .background(Color.yellow)
+            .cornerRadius(10)
+        }
+        .padding(.top, 25)
+        .frame(maxWidth: .infinity)
+        .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(dish: Dish())
     }
 }

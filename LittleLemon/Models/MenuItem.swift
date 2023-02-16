@@ -7,12 +7,19 @@
 
 import Foundation
 
-struct MenuItem: Decodable, Identifiable {
+enum Category: String, CaseIterable {
+    case mains = "Mains"
+    case starters = "Starters"
+    case desserts = "Desserts"
+    case drinks = "Drinks"
+}
+
+struct MenuItem: Codable, Identifiable {
     let id: Int
     let title: String
     let image: String
     let price: String
     let description: String
-    let category: String
+    let category: Category.RawValue
 }
 

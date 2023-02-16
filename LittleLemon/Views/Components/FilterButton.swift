@@ -8,16 +8,11 @@
 import SwiftUI
 
 struct FilterButton: View {
-    @Environment(\.managedObjectContext) private var context
-    
-    let filterType = [
-        "Starters", "Mains", "Desserts", "Drinks"
-    ]
     
     var body: some View {
         HStack {
-            ForEach(filterType, id: \.self) { typeName in
-                Button(typeName) {
+            ForEach(Category.allCases, id: \.self) { category in
+                Button(category.rawValue) {
                     
                 }
             }

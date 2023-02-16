@@ -99,9 +99,8 @@
 				86EDDF9E299493F200FD4A35 /* Info.plist */,
 				86EDDF71299437A200FD4A35 /* LittleLemonApp.swift */,
 				8694C1842996E32600C414AE /* Fonts */,
-				86EDDFA92995792A00FD4A35 /* Models */,
 				86EDDF9D29948EFF00FD4A35 /* Views */,
-				86EDDFB72995EC1900FD4A35 /* Components */,
+				86EDDFA92995792A00FD4A35 /* Models */,
 				86EDDF75299437A300FD4A35 /* Assets.xcassets */,
 				86EDDF77299437A300FD4A35 /* Preview Content */,
 			);
@@ -125,6 +124,7 @@
 				86EDDFB32995A5EE00FD4A35 /* DetailView.swift */,
 				86EDDFA32994ED6F00FD4A35 /* UserProfile.swift */,
 				86EDDFB52995E83C00FD4A35 /* HeroView.swift */,
+				86EDDFB72995EC1900FD4A35 /* Components */,
 			);
 			path = Views;
 			sourceTree = "<group>";

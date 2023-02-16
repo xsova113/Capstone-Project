@@ -9,17 +9,18 @@ import SwiftUI
 import CoreData
 
 struct Menu: View {
-    
     @Environment(\.managedObjectContext) private var context
-    
     let persistence = PersistenceController.shared
+    
     @State private var searchText = ""
+    //    let dish: [Dish]
+    var category: Category
     
     //MARK: - Check if data exists (use it to prevent duplicating data)
     func exists(in context: NSManagedObjectContext, attributeValue: String) -> Bool {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Dish")
         fetchRequest.predicate = NSPredicate(format: "title = %@", attributeValue)
-
+        
         do {
             let results = try context.fetch(fetchRequest)
             return results.count > 0
@@ -30,7 +31,7 @@ struct Menu: View {
     }
     
     func getMenuData() {
-//        PersistenceController.shared.clear()
+        //        PersistenceController.shared.clear()
         let urlString = "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json"
         
         if let url = URL(string: urlString) {
@@ -61,62 +62,64 @@ struct Menu: View {
             task.resume()
         }
     }
-        
-        
-        func buildSortDescriptors() -> [NSSortDescriptor] {
-            return [NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare))]
+    
+    
+    func buildSortDescriptors() -> [NSSortDescriptor] {
+        return [NSSortDescriptor(key: "title", ascending: true, selector: #selector(NSString.localizedStandardCompare))]
+    }
+    
+    func buildPredicate() -> NSPredicate {
+        if searchText == "" {
+            return NSPredicate(value: true)
+        } else {
+            return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
         }
-        
-        func buildPredicate() -> NSPredicate {
-            if searchText == "" {
-                return NSPredicate(value: true)
-            } else {
-                return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
+    }
+    
+    
+    var body: some View {
+        ScrollView {
+            HStack {
+                LogoView()
+                    .padding(.leading, 65)
+                Image("profile")
+                    .resizable()
+                    .frame(width: 65, height: 65)
+                    .aspectRatio(contentMode: .fit)
             }
-        }
-        
-        var body: some View {
-            ScrollView {
-                HStack {
-                    LogoView()
-                        .padding(.leading, 65)
-                    Image("profile")
-                        .resizable()
-                        .frame(width: 65, height: 65)
-                        .aspectRatio(contentMode: .fit)
-                }
-                VStack {
-                    HeroView()
-                    TextField("\(Image(systemName: "magnifyingglass")) Search menu", text: $searchText)
-                        .background(Color.white)
-                        .textFieldStyle(.roundedBorder)
-                        .padding(.bottom, 20)
-                }
-                .padding()
-                .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
-                
-                VStack {
-                    Text("Order for Delivery!")
-                        .fontWeight(.medium)
-                        .font(.system(size: 20))
-                        .padding(.horizontal, 15)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                
-                FilterButton()
-                
-                Divider()
-                    .padding(.top, 10)
-                
-                NavigationView {
-                    FetchedObjects(predicate: buildPredicate(),
-                                   sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
-                        List(dish) { dish in
+            VStack {
+                HeroView()
+                TextField("\(Image(systemName: "magnifyingglass")) Search menu", text: $searchText)
+                    .background(Color.white)
+                    .textFieldStyle(.roundedBorder)
+                    .padding(.bottom, 20)
+            }
+            .padding()
+            .background(Color(red: 0.29, green: 0.37, blue: 0.34, opacity: 1.00))
+            
+            VStack {
+                Text("Order for Delivery!")
+                    .fontWeight(.medium)
+                    .font(.system(size: 20))
+                    .padding(.horizontal, 15)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            FilterButton()
+            
+            Divider()
+                .padding(.top, 10)
+            
+            NavigationView {
+                FetchedObjects(predicate: buildPredicate(),
+                               sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
+                    List(dish) { dish in
                             NavigationLink {
-                                DetailView()
+                                DetailView(dish: dish)
                             } label: {
                                 HStack {
                                     VStack(alignment: .leading) {
+                                       
                                         Text(dish.title!)
                                             .font(Font.custom("karla", size: 20))
                                             .bold()
@@ -142,23 +145,24 @@ struct Menu: View {
                                     .frame(width: 100, height: 100, alignment: .trailing)
                                 }
                             }
-                        }
+                        
                     }
                 }
-                .onAppear {
-                    getMenuData()
-                }
-                .scrollContentBackground(.hidden)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .scrollDismissesKeyboard(.immediately)
+            .onAppear {
+                getMenuData()
+            }
+            .scrollContentBackground(.hidden)
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .scrollDismissesKeyboard(.immediately)
     }
-    
-    struct Menu_Previews: PreviewProvider {
-        static var previews: some View {
-            Menu()
-        }
+}
+
+struct Menu_Previews: PreviewProvider {
+    static var previews: some View {
+        Menu(category: Category.mains)
     }
-    
-    
+}
+
+

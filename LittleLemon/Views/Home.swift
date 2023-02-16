@@ -13,7 +13,7 @@ struct Home: View {
     var body: some View {
         VStack {
             TabView {
-                Menu()
+                Menu(category: Category.mains)
                 .tabItem {
                     Label("Menu", systemImage: "list.dash")
                 }
