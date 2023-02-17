@@ -65,6 +65,7 @@ struct DetailView: View {
                 }
                 .disabled(num <= 0)
             }
+            .padding()
             
             Button {
                 

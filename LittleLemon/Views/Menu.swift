@@ -55,7 +55,7 @@ struct Menu: View {
                         }
                         try? context.save()
                     }
-                } else if error != nil {
+                } else {
                     print(error?.localizedDescription ?? "Error occurred")
                 }
             }
