@@ -42,7 +42,6 @@ struct DetailView: View {
             HStack(spacing: 20) {
                 Button {
                     num += 1
-                    print(num)
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
@@ -55,7 +54,6 @@ struct DetailView: View {
                     .foregroundColor(.white)
                 Button {
                     num -= 1
-                    print(num)
                 } label: {
                     Image(systemName: "minus")
                         .resizable()

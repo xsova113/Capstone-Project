@@ -12,8 +12,11 @@ struct Menu: View {
     @Environment(\.managedObjectContext) private var context
     let persistence = PersistenceController.shared
     
+//    @State var selectedCategory = ""
+    @StateObject var filterLogic = FilterLogic()
+    
     @State private var searchText = ""
-    //    let dish: [Dish]
+    
     var category: Category
     
     //MARK: - Check if data exists (use it to prevent duplicating data)
@@ -69,13 +72,17 @@ struct Menu: View {
     }
     
     func buildPredicate() -> NSPredicate {
-        if searchText == "" {
+        if !filterLogic.selectedCategory.isEmpty && searchText.isEmpty {
+            print("Category is :\(filterLogic.selectedCategory)")
+            return NSPredicate(format: "category == %@", filterLogic.selectedCategory)
+        } else if filterLogic.selectedCategory.isEmpty && searchText.isEmpty {
+            print(filterLogic.selectedCategory, "EMPTY")
             return NSPredicate(value: true)
         } else {
             return NSPredicate(format: "title CONTAINS[cd] %@", searchText)
         }
     }
-    
+
     
     var body: some View {
         ScrollView {
@@ -105,47 +112,54 @@ struct Menu: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             
-            FilterButton()
+            FilterButton(filterLogic: filterLogic)
+           
+            
+            //            Picker("Category", selection: $selectedCategory) {
+            //                ForEach(Category.allCases) { category in
+            //                    Text(category.rawValue)
+            //                }
+            //            }
             
             Divider()
                 .padding(.top, 10)
             
             NavigationView {
+                
                 FetchedObjects(predicate: buildPredicate(),
                                sortDescriptors: buildSortDescriptors()) { (dish: [Dish]) in
+                    
                     List(dish) { dish in
-                            NavigationLink {
-                                DetailView(dish: dish)
-                            } label: {
-                                HStack {
-                                    VStack(alignment: .leading) {
-                                       
-                                        Text(dish.title!)
-                                            .font(Font.custom("karla", size: 20))
-                                            .bold()
-                                            .padding(.top, 10)
-                                        Spacer()
-                                        Text(dish.describ!)
-                                            .font(Font.custom("Karla-paragraph", size: 16))
-                                            .fontWeight(.regular)
-                                            .lineLimit(2)
-                                            .padding(.bottom, -10)
-                                            .padding(.top, -5)
-                                        Spacer()
-                                        Text("$\(dish.price!)")
-                                            .font(Font.custom("karla", size: 16))
-                                            .fontWeight(.semibold)
-                                            .padding(.top, 5)
-                                    }
+                        NavigationLink {
+                            DetailView(dish: dish)
+                        } label: {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text(dish.title!)
+                                        .font(Font.custom("karla", size: 20))
+                                        .bold()
+                                        .padding(.top, 10)
                                     Spacer()
-                                    let url = URL(string: dish.image ?? "unavailable")
-                                    AsyncImage(url: url) { image in image
-                                            .image?.resizable()
-                                    }
-                                    .frame(width: 100, height: 100, alignment: .trailing)
+                                    Text(dish.describ!)
+                                        .font(Font.custom("Karla-paragraph", size: 16))
+                                        .fontWeight(.regular)
+                                        .lineLimit(2)
+                                        .padding(.bottom, -10)
+                                        .padding(.top, -5)
+                                    Spacer()
+                                    Text("$\(dish.price!)")
+                                        .font(Font.custom("karla", size: 16))
+                                        .fontWeight(.semibold)
+                                        .padding(.top, 5)
                                 }
+                                Spacer()
+                                let url = URL(string: dish.image ?? "unavailable")
+                                AsyncImage(url: url) { image in image
+                                        .image?.resizable()
+                                }
+                                .frame(width: 100, height: 100, alignment: .trailing)
                             }
-                        
+                        }
                     }
                 }
             }
