@@ -74,7 +74,7 @@ struct DetailView: View {
                     .font(.title3)
                     .bold()
                     .foregroundColor(.white)
-                    .padding(.horizontal)
+                    .padding()
             }
             .frame(width: 300)
             .background(Color.yellow)

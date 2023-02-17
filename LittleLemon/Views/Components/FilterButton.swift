@@ -27,6 +27,7 @@ struct FilterButton: View {
 //            .font(Font.system(size: 12))
 //            .padding(.horizontal, 5)
             Text("Select Category: ")
+                .padding(.horizontal)
                 .frame(width: 200, alignment: .leading)
             Picker("Category", selection: $selectedCategory) {
                 ForEach(Category.allCases, id: \.self) { category in
